@@ -1,13 +1,18 @@
 
 .panel, .flip {
+  margin-left: 1.5rem;
   padding:10px;
   text-align: left;
-  background-color: pink;
-  border:solid 1px #c3c3c3;
+  background-color: rgb(226, 224, 236);
+  border:solid 1px #c5c3c3;
 }
 .panel {
-  
   padding:20px;
-
-
+ 
 }
+
+#button {
+  
+  background-color:;
+}
+

@@ -9,7 +9,7 @@ let userdata;
 document.getElementById('button').addEventListener('click', () => {
     userdata = new User(`${firstname.value}`, `${lastname.value}`, `${email.value}`, `${phone.value}`, `${address.value}`, `${city.value}`, `${zip.value}`)
     users.push(userdata)
-    document.getElementById('text-output').innerText = 'User created'
+    // document.getElementById('text-output').innerText = 'Created'
     console.log(userdata)
  
   
@@ -21,19 +21,17 @@ let inputs = document.getElementsByTagName('input')
 
 for (let input of inputs) {
     input.addEventListener('keyup', (e) => {
-        if(e.target.value.length < 4) {
+        if(e.target.value.length < 3) {
             e.preventDefault();
             document.getElementById(`${e.target.id}-error`).innerText = 'För få tecken i ' + e.target.id
             document.getElementById('button').disabled = true
         }
         else {
-            document.getElementById(`${e.target.id}-error`).innerText = ''
+            document.getElementById(`${e.target.id}-error`).innerText = ' '
             document.getElementById('button').disabled = false
         }
     })
 } 
-
-
 
 function validateEmail(email) {
     let res = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -49,21 +47,15 @@ function validateEmail(email) {
     } else {
       result.text(email + " is not a valid email");
       result.css("color", "red");
-
     }
     return false;
   }
-
-
-
-
-
-
 
 $(document).ready(function(){
     
   
 
+    $("#email").on("keyup", validate);
     $("#button").on("click", validate);
  
     $("body").delegate(".flip", "click", function(){
